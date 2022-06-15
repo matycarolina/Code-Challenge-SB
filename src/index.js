@@ -1,5 +1,5 @@
-import PlateVerifier from './PlateVerifier';
-import * as readline from 'node:readline';
+import PlateVerifier from "./PlateVerifier";
+import * as readline from "node:readline";
 
 const plateVerifier = new PlateVerifier();
 
@@ -8,14 +8,46 @@ const plateVerifier = new PlateVerifier();
 const prompts = readline.createInterface(process.stdin, process.stdout);
 
 // create a question or there handler.
-prompts.question("Type your license plate (Ex: ABC-1234): ", (response) => {
+prompts.question("Type START to begin: ", (response) => {
   // check the response.
-  if (plateVerifier.picoPlacaPredictor(response)) {
-    console.log("You are restricted.");
+  if (response === "START") {
+    if (plateVerifier.picoPlacaPredictor("ABC-129", "06-15-2022", "08:00")) {
+      console.log(
+        "Plate: ABC-129, Date: 06-15-2022, Time: 08:00 ----> ",
+        "You are restricted"
+      );
+    } else {
+      console.log(
+        "Plate: ABC-129, Date: 06-15-2022, Time: 08:00 ----> ",
+        "You are not restricted"
+      );
+    }
+
+    if (plateVerifier.picoPlacaPredictor("ABC-126", "06-15-2022", "18:00")) {
+      console.log(
+        "Plate: ABC-126, Date: 06-15-2022, Time: 18:00 ----> ",
+        "You are restricted"
+      );
+    } else {
+      console.log(
+        "Plate: ABC-126, Date: 06-15-2022, Time: 18:00 ----> ",
+        "You are not restricted"
+      );
+    }
+
+    if (plateVerifier.picoPlacaPredictor("ABC-120", "06-15-2022", "09:50")) {
+      console.log(
+        "Plate: ABC-120, Date: 06-15-2022, Time: 09:50 ----> ",
+        "You are restricted"
+      );
+    } else {
+      console.log(
+        "Plate: ABC-120, Date: 06-15-2022, Time: 09:50 ----> ",
+        "You are not restricted"
+      );
+    }
   } else {
-    console.log(
-      "You are not restricted"
-    );
+    console.log("Please, type again.");
   }
 
   // after the all work is done want to terminate this process.
