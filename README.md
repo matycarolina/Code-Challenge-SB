@@ -59,3 +59,23 @@ For this project you're gonna need:
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- UNIT TESTS -->
+## Unit Tests
+
+A couple of unit tests were implemented.
+  
+### Implemented With
+
+The testing framework used was:
+* [Jest](https://jestjs.io/)
+
+
+### Command
+
+Run the tests
+   ```sh
+   npm run test
+   ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
